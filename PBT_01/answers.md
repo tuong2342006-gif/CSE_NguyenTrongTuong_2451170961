@@ -235,37 +235,3 @@ Nói rằng chỉ cần dùng <div> cho mọi thứ rồi thêm class là đủ 
 Một ví dụ cụ thể: khi xây dựng trang tin tức, nếu mỗi bài viết được đặt trong <article>, công cụ tìm kiếm và screen reader đều hiểu đây là một đơn vị nội dụng độc lập. Ngược lại, nếu dung <div class="post">, bạn phải giải thích thêm bằng nhiều cách khác, vừa rườm rà vừa dễ sai.
 Tuy vậy, không phải lúc nào <div> cũng vô dụng. Trong các trường hợp như tạo layout bằng flexbox/grid, hoặc làm wrapper để áp CSS, <div> vẫn là lựa chọn hợp lý vì những phần này không mang ý nghĩ nội dung.
 Tóm lại, semantic HTML không phải là học thêm cho khó mà là đầu tư đúng để website dễ hiểu hơn với cả máy và người.
-
-Phân C:
-Câu C1:
-Lỗi 1: Dòng 2 - input"Tên" không có <label for="..">, vi phạm accessibility
-Sửa:<label for="name">Tên:</label>
-<input type="text" id="name" name="name" required>
-Lỗi 2: Dòng 4 - Input email thiếu <label>, placeholder không thay label
-Sửa: <label for="password">Email:</label>
-<input>type="email" id="email" name="email" requied>
-Lỗi 3: Dòng 6 - Password không có label, vi phạm accessibility
-Sửa: <label for="password">Mật khẩu:</label>
-<input type="password" id="password" name="password" required>
-Lỗi 4: Dòng 7 - "Nhập lại mật khẩu" không có label + không phân biệt field, không có id/name riêng
-Sửa: <label for="cònirm">Nhập lại mật khẩu:</label>
-<input type="password"> id="confirm" name="confirm" required>
-Lỗi 5:Dòng 9 - phone dùng type="text" + có sẵn value, sai type
-Sửa: <label for="phone">Số điện thoại:</label>
-<input>type="tel" id="phone" name="phone" placeholder ="0901234567" required>
-Lỗi 6: Dòng 11= <select> không có label, vi phạm accessibiliyy 
-Sửa: <label for="city">Thành phố:</label>
-<select id="city" name="city" required>
-    <option value="">Chọn</option>
-    <option>Hà Nội</option>
-    <option>TP.HCM></option>
-</select>
-Lỗi 7: Dòng 16 - checkbox điều khoản thiếu input, có label nhưng không có checkbox
-Sửa:<label>
-<input type="checkbox" name="terms" required>
-Tôi đồng ý điều khoản
-</label>
-Lỗi 8: Dòng 20 - nút submid dùng input + không có aria-label, kém semantic hơn 
-Sửa: <button type="submit" aria-label="gửi form">Gửi</button>
-Câu C2:
-
