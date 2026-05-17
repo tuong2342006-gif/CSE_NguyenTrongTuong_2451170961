@@ -168,3 +168,231 @@ CSS:
 5. trình duyệt không đọc được file .scss vì .scss không phải CSS chuẩn và nó chứa cú pháp đặc  biệt như nesting, $variables, @mixin, @extend
 6. Quy trình: SCSS -> Compiler -> CSS
 
+Phần B: 
+Câu B3:
+SCSS Compile Command
+sass scss/style.scss style.css
+
+- Variables
+Có hơn 8 variables
+Dùng nhất quán
+- Nesting
+.header
+.card
+&:hover
+&.featured
+- Mixins
+respond-to
+flex-center
+card-shadow
+- Partials
+_variables.scss
+_mixins.scss
+_components.scss
+- Compile
+Có lệnh compile SCSS → CSS
+
+Phần C:
+Câu C1:
+1. Mobile — 375px
+* Navigation
+- Chỉ còn:
++ logo
++ nút search
++ avatar/menu
+- Sidebar bị thu gọn thành icon
+- Menu dạng mobile compact
+* Content Grid
+- Video hiển thị: 1 cột
+* Elements bị ẩn
++ Một số text ở sidebar
++ Category dài bị rút gọn
++ Mini sidebar collapse
+* Font Size
++ Nhỏ hơn desktop
++ Title video ngắn lại để vừa màn hình
+2. Tablet — 768px
+*Navigation
+- Thanh search lớn hơn
+- Sidebar bắt đầu mở rộng hơn mobile
+- Có thêm category bar
+* Content Grid
+Video hiển thị: 2 cột
+* Elements bị ẩn
+- Ít bị ẩn hơn mobile
+- Một số sidebar vẫn compact
+* Font Size
+- Lớn hơn mobile một chút
+3. Desktop — 1440px
+*Navigation
+- Full navbar:
++ logo
++ search bar lớn
++ microphone
++ upload
++ notification
++ avatar
+- Sidebar đầy đủ text + icon
+* Content Grid
+Video hiển thị: 4 cột
+* Elements bị ẩn
+- Gần như không ẩn
+* Font Size
+- Lớn hơn mobile
+- Khoảng cách rộng hơn
+Câu C2:
+1. Mobile Layout(<768px)
+┌────────────────────┐
+│ LOGO   ☰           │
+│ Phone hidden       │
+├────────────────────┤
+│                    │
+│    HERO IMAGE      │
+│                    │
+├────────────────────┤
+│ FOOD IMAGE 1       │
+├────────────────────┤
+│ FOOD IMAGE 2       │
+├────────────────────┤
+│ FOOD IMAGE 3       │
+├────────────────────┤
+│ FOOD IMAGE 4       │
+├────────────────────┤
+│ FOOD IMAGE 5       │
+├────────────────────┤
+│ FOOD IMAGE 6       │
+├────────────────────┤
+│ RESERVATION FORM   │
+│ Date               │
+│ Time               │
+│ Guests             │
+│ Notes              │
+├────────────────────┤
+│ GOOGLE MAP         │
+├────────────────────┤
+│ FOOTER             │
+└────────────────────┘
+- 1 cột
+- Ẩn 
++ Ẩn menu ngang
++ Ẩn một số text dài
+- Form nằm 
++ Nằm dưới grid món ăn
++ Full width dễ nhập trên điện thoại
+2. Tablet Layout (768px - 1023px)
+┌────────────────────────────────┐
+│ LOGO      MENU      PHONE      │
+├────────────────────────────────┤
+│                                │
+│          HERO IMAGE            │
+│                                │
+├────────────────────────────────┤
+│ FOOD 1      FOOD 2             │
+│ FOOD 3      FOOD 4             │
+│ FOOD 5      FOOD 6             │
+├────────────────────────────────┤
+│                                │
+│       RESERVATION FORM         │
+│                                │
+├────────────────────────────────┤
+│         GOOGLE MAP             │
+├────────────────────────────────┤
+│            FOOTER              │
+└────────────────────────────────┘
+- Grid ảnh: 2 cột 
+- Bản đồ nằm dưới form và full width
+- Navigation
++ menu ngang xuất hiện
+3. Desktop Layout (≥1024px)
+┌─────────────────────────────────────────────┐
+│ LOGO     MENU NAVIGATION      PHONE         │
+├─────────────────────────────────────────────┤
+│                                             │
+│               HERO IMAGE                    │
+│                                             │
+├──────────────────────┬──────────────────────┤
+│                      │                      │
+│     FOOD GRID        │   RESERVATION FORM   │
+│      3 COLUMNS       │                      │
+│                      │                      │
+├──────────────────────┴──────────────────────┤
+│               GOOGLE MAP                    │
+├─────────────────────────────────────────────┤
+│                  FOOTER                     │
+└─────────────────────────────────────────────┘
+- 2 cột chính
++ Trái: food gallery
++ Phải: reservation form
+- Không cần siderbar riêng, form hoạt động như cột phụ
+- 3 cột
+4. CSS Skeleton (Mobile-First)
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.header,
+.hero,
+.gallery,
+.form-section,
+.map,
+.footer {
+  padding: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.desktop-layout {
+  display: block;
+}
+
+.phone {
+  display: none;
+}
+
+.nav {
+  display: none;
+}
+
+/* TABLET */
+
+@media (min-width: 768px) {
+
+  .nav {
+    display: flex;
+    gap: 20px;
+  }
+
+  .phone {
+    display: block;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1024px) {
+
+  .desktop-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

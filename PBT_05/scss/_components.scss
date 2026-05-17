@@ -1,0 +1,120 @@
+body {
+  font-family: $font-primary;
+  background: $background-color;
+  color: $text-color;
+}
+
+.header {
+  background: $primary-color;
+  color: $white-color;
+  padding: $spacing-md;
+
+  @include flex-center;
+  justify-content: space-between;
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .nav {
+    display: none;
+
+    a {
+      color: $white-color;
+      text-decoration: none;
+      margin-left: $spacing-md;
+    }
+  }
+
+  .hamburger {
+    font-size: 28px;
+    cursor: pointer;
+  }
+
+  @include respond-to(tablet) {
+
+    .nav {
+      display: flex;
+    }
+
+    .hamburger {
+      display: none;
+    }
+  }
+}
+
+.products {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+
+  @include respond-to(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: $white-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+  transition: $transition;
+
+  .card-image {
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .card-content {
+    padding: $spacing-md;
+  }
+
+  .card-title {
+    font-size: 20px;
+    margin-bottom: $spacing-sm;
+  }
+
+  .card-price {
+    color: $secondary-color;
+    margin-bottom: $spacing-md;
+  }
+
+  button {
+    background: $primary-color;
+    color: $white-color;
+    border: none;
+    padding: $spacing-sm $spacing-md;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background: $secondary-color;
+      transform: scale(1.05);
+    }
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+
+    @include card-shadow;
+  }
+
+  &.featured {
+    border: 3px solid $secondary-color;
+  }
+}
+
+.footer {
+  background: $primary-color;
+  color: $white-color;
+  text-align: center;
+  padding: $spacing-lg;
+}
