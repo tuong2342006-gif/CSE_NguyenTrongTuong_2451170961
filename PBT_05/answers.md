@@ -76,3 +76,95 @@ Chiều rộng màn hình- .container width:
 + 1400px - 1140px
 Nguồn: tuan_3_css_advanced/13_creating_responsive_layouts.md\
 
+Câu A4:
+1. Variables: SCSS cho phép tạo biến để lưu giá trị dùng nhiều lần
+- Ví dụ:
+SCSS:
+$primary-color: blue;
+$padding-size: 20px;
+
+.button {
+  background: $primary-color;
+  padding: $padding-size;
+}
+CSS:
+$primary-color: red;
+2. Nesting: SCSS cho phép viết selector lồng nhau giống cấu trúc HTML
+- Ví dụ:
+SCSS:
+.navbar {
+  background: black;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    color: white;
+  }
+}
+CSS:
+.navbar {
+  background: black;
+}
+
+.navbar ul {
+  list-style: none;
+}
+
+.navbar li {
+  display: inline-block;
+}
+
+.navbar a {
+  color: white;
+}
+3. Mixins: giúp tái sử dụng nhiều dòng CSS
+- Ví dụ: 
+SCSS:
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  @include flex-center;
+  height: 200px;
+}
+CSS:
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+4.Inheritance: Cho phép class kế thừa style từ class khác
+-Ví dụ:
+SCSS:
+.button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.primary-button {
+  @extend .button;
+  background: blue;
+}
+CSS:
+.button,
+.primary-button {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.primary-button {
+  background: blue;
+}
+5. trình duyệt không đọc được file .scss vì .scss không phải CSS chuẩn và nó chứa cú pháp đặc  biệt như nesting, $variables, @mixin, @extend
+6. Quy trình: SCSS -> Compiler -> CSS
+
