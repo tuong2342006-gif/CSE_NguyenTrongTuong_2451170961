@@ -113,3 +113,23 @@ Tôi đồng ý điều khoản
 </label>
 Lỗi 8: Dòng 20 - nút submid dùng input + không có aria-label, kém semantic hơn 
 Sửa: <button type="submit" aria-label="gửi form">Gửi</button>
+Câu C2:
+1.Regex cho CMND/CCCD & Số tài khoản
+- CMND/CCCD (đúng 12 chữ số)
+^\d{12}$
+- Số tài khoản (10-15 chữ số)
+^\d{10,15}
+2. HTML5 validation không đủ an toàn cho ngân hàng vì:
+-Người dùng có thể tắt validation HTML
+-Có thể fake request bằng postman/devtools
+-Không kiểm soát được dữ liệu khi gửi trực tiếp lên server
+-Chỉ là client-side
+3. 3 loại validation HTML5 không làm được
+- kiểm tra logic phức tập 
+- so sánh nhiều field
+- rule nghiệp vụ
+4. 2 rủi ro nếu chỉ validate Frontend
+- bị bypass validation
+- tấn công bảo mật
+
+
