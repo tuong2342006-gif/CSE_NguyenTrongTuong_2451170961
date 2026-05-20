@@ -147,3 +147,72 @@ var html = `
     <span>Giá: ${price}đ</span>
 </div>
 `;
+
+Phần C:
+Câu C1:
+// Code đã sửa
+
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+    // kiểm tra input có phải số không
+    if (
+        typeof giaBan !== "number" ||
+        typeof phanTramGiam !== "number"
+    ) {
+        return "Input không hợp lệ";
+    }
+    // kiểm tra phần trăm giảm
+    if (phanTramGiam < 0 || phanTramGiam > 100) {
+        return "Phần trăm giảm không hợp lệ";
+    }
+    let giamGia = giaBan * phanTramGiam / 100;
+    let giaSauGiam = giaBan - giamGia;
+    // kiểm tra miễn phí
+    if (giaSauGiam === 0) {
+        console.log("Sản phẩm miễn phí!");
+    }
+    return giaSauGiam;
+}
+// Test
+const gia = tinhGiaGiamGia(100000, 20);
+console.log("Giá sau giảm: " + gia + "đ");
+const gia2 = tinhGiaGiamGia(50000, 110);
+console.log("Giá: " + gia2);
+
+// sửa var thành let
+for (let i = 0; i < 5; i++) {
+    setTimeout(function () {
+        console.log("Item " + i);
+    }, 1000);
+
+}
+
+// Lỗi 1
+if (giaSauGiam = 0)
+- Sai vì: dùng = là phép gán và ko được phép so sánh
+- Sửa:
+if (giaSauGiam === 0)
+
+// Lỗi 2
+const gia = tinhGiaGiamGia("100000", 20)
+- Sai vì "100000" là string nên cần number
+- Sửa: 
+const gia = tinhGiaGiamGia(100000, 20)
+
+// Lỗi 3
+thiếu validate kiểu dữ liệu
+- Sai vì nếu input không phải số thì hàm vẫn chạy
+- Sửa: typeof giaBan !== "number"
+
+// Lỗi 4
+dùng var cho giamGia 
+- Sai vì var có funtion scope
+- Sửa let giamGia
+
+// Lỗi 5
+thiếu dấu ;
+
+// Lỗi 6 (lỗi ẩn)
+for (var i = 0; i < 5; i++)
+- Sai vì var không có block scope, callback trong setTimeout chạy sau khi vòng lặp kết thúc, lúc đó i = 5
+- Sửa: for (let i = 0; i < 5; i++)
+
