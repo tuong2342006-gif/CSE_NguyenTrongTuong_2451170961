@@ -44,3 +44,25 @@ Ví dụ: <button aria-label="Tìm kiếm"></button>
 4. Không nên dùng aria-label khi đã có <label> vì <label> đã cung cấp thông tin đầy đủ rồi, dùng thêm aria-label sẽ gây trùng lặp và gây rối cho screen reader
 Nguồn: 07_forms_interactive.md + Accessbilities
 
+Câu A4:
+1. loading="lazy" trên thẻ <img> là thuộc tính của <img> giúp trì hoãn tải ảnh cho đến khi ảnh gần xuất hiện trong màn hình.
+Cản thiện: 
+-Tăng tốc độ load trang ban đầu
+-Giảm băng thông
+-Tốt cho hiệu năng
+Không nên dùng khi ảnh ở trang đầu, ảnh quan trọng như logo, banner chính vì lazy load có thể làm ảnh hiển thị chậm hơn.
+2. Cần nhiều <source> trong <video> vì trình duyệt khác nhau hỗ trợ định dạng khác nhau và nếu 1 format không chạy thì trình duyệt sẽ dùng format khác .
+3 định dạng video phổ biến:
+-MP4(.mp4)
+-WebM(.webm)
+-Ogg<.ogg>
+3. Thuộc tính alt của <img> dùng để mô tả nội dung ảnh giúp screen reader đọc cho người khiếm thị, hiển thị khi ảnh lỗi và tốt cho SEO.
+alt cho các trường hợp:
+-Ảnh sản phẩm iPhone 12
+alt="iPhone 16 Pro màu xanh"
+-Ảnh trang trí
+alt=""
+-Ảnh biểu đồ doanh thu Q1/2026
+alt="Biểu đồ doanh thu quý 1 năm 2023 tăng từ tháng 2 đến tháng 4"
+Nguồn: 06_graphics_multimedia.md + Core Technical Truth
+
