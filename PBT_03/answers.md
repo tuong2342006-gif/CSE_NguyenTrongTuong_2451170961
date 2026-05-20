@@ -114,3 +114,22 @@ hai margin dọc thì không cộng mà lấy giá trị lớn nhất
 + Khoảng cách = 30px vì theo quy tắc 2 số cùng dương thì lấy max, 1 dương 1 âm thì cộng lại và 2 âm thì lấy âm lớn hơn 
 Tài liệu tham chiếu: tuan2_css_core/08_introduction_css.md
 
+Câu A4: 
+1. tính specificity score(a,b,c) cho mỗi rule
+-rule A 
+p{color: black;} - 1 tag
+specificity: (0,0,1)
+-rule B
+.price {color: blue;} - 1 class
+specificity: (0,1,0)
+-rule C
+#main-price{color: red;} - 1ID
+specificity: (1,0,0)
+-rule D 
+p.price{color: green;} - 1 tag + 1 class
+specificity: (0,1,1)
+2. 
+element sẽ có màu red vì ID luôn mạnh hơn class và tag, rule C thắng tất cả
+3. Nếu thêm <p class="price" id="main-price" style="color: orange;"> element sẽ có màu orange
+4. nếu rule A thêm !important, element có màu black vì lúc này override toàn bộ specificity bình thường và các rule khác không có nên bị override hết
+
