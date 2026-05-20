@@ -38,7 +38,6 @@ function calculate(num1, operator, num2) {
     }
 }
 // Test
-
 console.log(calculate(10, "+", 5));    
 // → 15
 
