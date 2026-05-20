@@ -56,3 +56,28 @@ Thứ tự ưu tiên: inline css > internal css > external css
 + external là file ngoài nên thấp hơn
 Tài liệu tham chiếu: tuan2_css_core/08_introduction_css.md
 
+Câu A2:
+1. h1 - chọn tất cả thẻ <h1>
+Kết quả: ShopTLU
+2. .price - chọn tất cả phần tử do class price
+Kết quả: 25.990.000đ và 45.990.000đ
+3. #app header - chọn <header> nằm trong #app
+Kết quả: ShopTLU
+Home
+Products
+About
+4. nav a:first-child - chọn thẻ <a> đầu tiên bên trong nav
+Kết quả: Home
+5. .product.featured h2 - chọn <h2> nằm trong phần tử có cả 2 class: product và featured
+Kết quả: MacBook Pro
+6. article > p - chọn tất cả <p> là con trực tiếp của <article>
+Kết quả: 25.990.000đ
+Mô tả sản phẩm...
+45.990.000đ
+Mô tả sản phẩm...
+7. a[href="/"] - chọn thẻ <a> có attribute href="/"
+Kết quả: Home
+8. .top-bar.dark h1 - chọn <h1> nằm trong phần tử có cả class top-bar và dark
+Kết quả: ShopTLU
+Tài liệu tham chiếu: tuan2_css_core/08_introduction_css.md
+
