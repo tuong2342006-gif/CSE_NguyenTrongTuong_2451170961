@@ -61,3 +61,15 @@ Sửa:
     <p>2026 ShopTLU</p>
 </footer>    
 Nguồn: 04_semantic_html.md
+
+Câu A3 - Block vs Inline
+- mô tả bằng text art
+Hộp 1
+Text A TexT B
+Hộp 2
+Text C Text D
+Hộp 3
+Giải thích:
+- <div> là block element: luôn chiếm toàn bộ chiều ngang nên hộp 1, hộp 2, hộp 3 mỗi cái nằm một dòng
+- <span> và <strong> là inline element: Không xuống dòng và hiện thị trên cùng một dòng nên Text A và Text B cùng 1 dòng, Text C và Text D cùng một dòng
+Nguồn: 04_semantic_html.md 
