@@ -97,3 +97,17 @@ sidebar | content | sidebar
 | 7 |
 + 3 hàng và hàng cuối chỉ cps item 7 ở cột đầu tiên
 Nguồn tham khảo: tuan_3_css_advanced/13_creating_responsive_layouts.md
+
+ Phần C
+ Câu C1:
+ -Tình huống: Navigation bar ngang(logo + menu + buttons)
+ + nên dùng: flexbox vì navbar là layout 1 chiều (ngang).Flexbox rất mạnh cho căn trái/phải, căn giữa và spacing giữa các items
+ - Lưới ảnh Instagram(3 cột đều nhau, số ảnh không biết trước) 
+ + nên dùng: grid vì đây là layout 2 chiều(hàng + cột).Grid giúp chia cột dều và tự động xuống hàng rất dễ
+ - Layout blog: main content + sidebar
+ + nên dùng: grid vì có cấu trúc rõ ràng nhiều vùng: content + sidebar.Grid phù hợp cho layout tổng thể của trang
+ - Footer với 4 cột thông tin
+ + nên dùng : được cả 2 grid hoặc flexbox vì nếu chỉ là 1 hàng ngang đơn giản thì flexbox đủ dùng. Nếu muốn có cột đều nhau, responsive đẹp và grid tốt hơn
+ - Card sản phẩm (ảnh trên, text giữa, nút dưới — nút luôn dính đáy)
+ + nên dùng: flexbox vì Card là layout theo chiều dọc. Dùng flex-direction: column và margin-top: auto để đẩy nút xuống đáy rất tiện
+ 
