@@ -120,3 +120,112 @@ Các thẻ không dùng semantic
 - Input types được dùng:
 + Text - nhập từ khóa
 + submit - nút tìm kiếm
+
+Phần C:
+Câu C1:
+<!DOCTYPE html> <!--Khai báo HTML5-->
+<html lang="vi"> <!--Ngôn ngữ tiếng Việt-->
+<head>
+    <meta charset="UTF-8"> <!--Hỗ trợ Unicode-->
+    <meta name="viewport" content="width=device-width, initial-scalee=1.0">
+    <!--Responsive-->
+    <title>Chi tiết sản phẩm<?title> <!-- Tiêu đề trang -->
+</head>
+<body>
+    <!-- Header -->
+    <header><!-- header dùng cho phần đầu trang -->
+    <h1>Logo / Tên website</h1><!-- h1 cho tiêu đề chính -->
+    <nav> <!-- nav vì đây là thanh điều hướng -->
+    <ul> <!-- ul vì menu không có thức tự -->
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Danh mục</a></li>
+        <li><a href="#">Liên hệ</a></li>
+    </ul>
+    </nav>
+</header>
+
+<!-- BREADCRUMD -->
+<nav aria-label="breadcrumb"><!-- nav vì đây là điều hướng -->
+    <ol><!--ol vì breadcrumb có thứ tự -->
+    <li><a href="#">Trang chủ</a></li>
+    <li><a href="#">Điện thoại</a></li>
+    <li>iPhone 16</li> <!-- phần hiện tại không cần link -->
+    </ol>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main> <!-- main chứa nội dung chính của trnag -->
+    <section><!-- section vì đây là 1 phần nội dung lớn -->
+    <div> class="product-images"> <!-- dvi để gom nhóm ảnh -->
+        <figure> <!-- figure cho nội dung media -->
+        <image src="#" alt="Ảnh chính"> <!-- ảnh sản phẩm -->
+        <figcaption>Ảnh chính</figcaption> <!-- mô tả ảnh -->
+        </figure>
+
+        <div class ="thumbnail-list"> <!-- danh sách ảnh nhỏ -->
+            <img src="#" alt="Ảnh 1">
+            <img src="#" alt="Ảnh 2">
+            <img src="#" alt="Ảnh 3">
+        </div>
+    </div>
+
+    <!-- Thông tin sản phầm -->
+    <article><!--article vì nội dung này độc lập -->
+    <h2>Tên sản phẩm</h2> <!--tiêu đề sản phẩm -->
+    <p class="price">Giá</p> <!--giá -->
+    <div class="rating"> <!-- nhóm đánh giá -->
+        <span>★★★★★</span> <!-- hiện thị sao -->
+    </div>
+
+    <p class"description">Mô tả sản phẩm</p> <1-- mô tả -->
+    </article>
+</section>
+
+<!-- Bảng thông số -->
+<section> <!-- section riêng cho thông số -->
+    <h3>Thông số kỹ thuật</h3>
+    <table> <!-- tiêu đề -->
+        <thread> <!--phần tiêu đề bảng -->
+            <tr>
+                <th>Thuộc tính</th>
+                <th>Giá trị</th>
+            </tr>
+        </thread>
+        <tbody> <!-- nội dung bảng -->
+        <tr>
+            <td>CPU</td>
+            <td>...</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- đánh giá -->
+<section>
+    <h3>Đánh giá</h3>
+    <article> <!-- comment là 1 article độc lập -->
+    <h4>Tên người dùng</h4>
+    <p>Nội dung bình luận</p>
+    </article>
+</section>
+
+<main>
+<!-- sidebar -->
+<aside> <!-- aside vì nội dung phụ -->
+    <h3>Sản phẩm tương ứng</h3>
+    <ul> <!--danh sách sản phầm -->
+        <li>
+        <article><!-- mỗi sản phẩm là 1 đơn vị độc lập -->
+        <h4>Tên SP</h4>
+        <p>Giá</p>
+        </article>
+        </li>
+    </ul>
+</aside>
+
+<!-- footer -->
+<footer> <!-- footer cho phần cuối trang -->
+    <p>&copy; 2026 Website</p>
+</footer>
+</body>
+</html>
