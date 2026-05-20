@@ -66,3 +66,19 @@ alt=""
 alt="Biểu đồ doanh thu quý 1 năm 2023 tăng từ tháng 2 đến tháng 4"
 Nguồn: 06_graphics_multimedia.md + Core Technical Truth
 
+Câu A5:
+1. Dùng cách 1 khi ảnh chỉ để đơn giản, không cần chú thích thêm
+Ví dụ:
+<img src="avatar.jpg" alt="Ảnh đại diện">
+<img src="logo.jpg" alt="Logo trường">
+2. Dùng cách 2 khi ảnh là nội dung quan trọng, cần có chú thích và mô tả bổ sung
+Ví dụ:
+<figure>
+    <image src="iphone.jpg" alt="iPhone 16">
+    <figcaption>iPhone 16 - 24.000.000đ<figcaption>
+</figture>
+
+<figture>
+    <image src="chart.png" alt="Biểu đồ doanh thu">
+    <figcaption>Doanh thu tăng trưởng</figcaption>
+</figture>
