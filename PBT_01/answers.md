@@ -229,3 +229,9 @@ Câu C1:
 </footer>
 </body>
 </html>
+
+Câu C2:
+Nói rằng chỉ cần dùng <div> cho mọi thứ rồi thêm class là đủ thực ra là một cách làm nhanh nhưng không bền.Về mặt kỹ thuật, semantic HTML mạng lại lợi ích rõ ràng mà <div> không thể thay thế hoàn toàn. Thứ nhát là SEO: các công cụ tìm kiếm không chỉ đọc nội dung mà còn phân tích cấu trúc trang. Khi bạn dùng các thứ như <main>, <article>, <nav>, chúng giúp bot hiểu đâu là nội dung chính, đâu là điều hướng hay phần phụ.Nếu tất cả đều là <div>, trang sẽ giống như một khối mù, làm giảm khả năng xếp hạng. Thứ hai là Accessibility: người dùng sử dụng screen reader phụ thuộc rất nhiều vào semantic HTML để điều hướng nhanh. Các thẻ có ý nghĩa giúp họ nhảy đến nội dung cần thiết mà không phải đọc toàn bộ trang, điều mà <div> không cung cấp nếu không bổ sung thêm ARIA phức tạp.
+Một ví dụ cụ thể: khi xây dựng trang tin tức, nếu mỗi bài viết được đặt trong <article>, công cụ tìm kiếm và screen reader đều hiểu đây là một đơn vị nội dụng độc lập. Ngược lại, nếu dung <div class="post">, bạn phải giải thích thêm bằng nhiều cách khác, vừa rườm rà vừa dễ sai.
+Tuy vậy, không phải lúc nào <div> cũng vô dụng. Trong các trường hợp như tạo layout bằng flexbox/grid, hoặc làm wrapper để áp CSS, <div> vẫn là lựa chọn hợp lý vì những phần này không mang ý nghĩ nội dung.
+Tóm lại, semantic HTML không phải là học thêm cho khó mà là đầu tư đúng để website dễ hiểu hơn với cả máy và người.
