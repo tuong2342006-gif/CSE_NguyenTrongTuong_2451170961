@@ -142,3 +142,168 @@ Vấn đề
 + Dễ bảo trì
 + Theo đúng cách bootstrap thiết kế
 
+Câu C2:
+1. CSS thuần — Responsive Navbar
+HTML:
+<nav class="navbar">
+
+  <div class="logo">
+    MyShop
+  </div>
+
+  <ul class="menu">
+    <li>Home</li>
+    <li>Products</li>
+    <li>Contact</li>
+  </ul>
+
+  <div class="hamburger">
+    ☰
+  </div>
+
+</nav>
+CSS:
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #222;
+  color: white;
+}
+
+.menu {
+  display: none;
+  list-style: none;
+  gap: 20px;
+}
+
+.hamburger {
+  display: block;
+  font-size: 24px;
+}
+
+@media (min-width: 768px) {
+
+  .menu {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+2. CSS thuần — Product Card
+HTML: 
+<div class="card">
+
+  <img src="https://picsum.photos/300/200" alt="">
+
+  <div class="card-body">
+
+    <h3>Product</h3>
+
+    <p>$120</p>
+
+    <button>Buy Now</button>
+
+  </div>
+
+</div>
+CSS: 
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card img {
+  width: 100%;
+}
+
+.card-body {
+  padding: 16px;
+}
+
+button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+3. Bootstrap version
+Navbar
+HTML:
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+  <div class="container">
+
+    <a class="navbar-brand" href="#">
+      MyShop
+    </a>
+
+    <button
+      class="navbar-toggler"
+      data-bs-toggle="collapse"
+      data-bs-target="#menu"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>
+Product Card
+HTML:
+<div class="card">
+
+  <img
+    src="https://picsum.photos/300/200"
+    class="card-img-top"
+    alt=""
+  >
+
+  <div class="card-body">
+
+    <h5 class="card-title">
+      Product
+    </h5>
+
+    <p class="card-text">
+      $120
+    </p>
+
+    <button class="btn btn-dark">
+      Buy Now
+    </button>
+
+  </div>
+
+</div>
+
+4. So sánh 
+- Tiêu chí - Css thuần - bootstrap:
++ Số dòng Css - nhiều - ít
++ thời gian phát triển - chậm hơn - nhanh hơn 
++ responsive - tự viết media queries - có sẵn
++ tùy biến - rất cao - bị giới hạn framework
++ dễ maintain - khó hơn nếu project lớn
++ kích thước file - nhẹ - nặng hơn
+
