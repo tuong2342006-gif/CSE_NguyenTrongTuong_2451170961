@@ -218,3 +218,32 @@ phải tự trừ padding + border
 }
 Tổng: 960px (thỏa mãn)
 
+Câu C2:
+1."Sản phẩm A" (h2)
+<h2 class="title highlight">Sản phẩm A</h2>
+-font-size : .card.title {font-size: 20px;}
++override: body: 16px , .container: 14px
++kết luận: font-size = 20px
+-color: #featured .title {color: red;}
+/highlight {color: green !important;}
++so sánh : #featured .title - specificity cao và .highlight có !improtant nên thắng tất cả 
++Kết luận: color = green
+2. "Mô tả sản phẩm" (p trong featured)
+-color: .card { color: blue; }
+.card p { color: inherit; }
++inherit lấy từ cha (.card)
++.card có : color: blue;
++kết luận: color:blue;
+3. Sản phẩm B (h2)
+<h2 class="title">Sản phẩm B</h2>
+-font-size:
+.card .title { font-size: 20px; }
++Kết luận: font-size = 20px
+-color: không có .highlight và #featured
++ chỉ inherit từ .card
++kết luận: color = blue;
+4. "Mô tả sản phẩm B" (p.highlight)
+<p class="highlight">Mô tả sản phẩm B</p>
+-color: .highlight { color: green !important; }
++ !important nên thắng hết
++ kết luận: color = green
