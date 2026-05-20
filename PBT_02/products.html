@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Product Page</title>
+</head>
+<body>
+
+  <header>
+    <h1>Giới Thiệu Sản Phẩm Multimedia</h1>
+  </header>
+
+  <section>
+    <h2>Logo SVG</h2>
+
+    <svg width="120" height="120">
+      <circle cx="60" cy="60" r="50" fill="royalblue"></circle>
+      <rect x="40" y="40" width="40" height="40" fill="white"></rect>
+    </svg>
+  </section>
+
+  <section>
+    <h2>Hình Ảnh Sản Phẩm</h2>
+
+    <figure>
+      <img
+        src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"
+        alt="Điện thoại thông minh màu đen"
+        loading="lazy"
+        style="max-width: 100%; height: auto;"
+      >
+      <figcaption>Điện thoại thông minh cao cấp</figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e"
+        alt="Tai nghe không dây màu trắng"
+        loading="lazy"
+        style="max-width: 100%; height: auto;"
+      >
+      <figcaption>Tai nghe không dây chất lượng cao</figcaption>
+    </figure>
+
+    <figure>
+      <img
+        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+        alt="Đồng hồ thông minh hiện đại"
+        loading="lazy"
+        style="max-width: 100%; height: auto;"
+      >
+      <figcaption>Đồng hồ thông minh thời trang</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Video YouTube</h2>
+
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/tgbNymZ7vqY"
+      title="YouTube video player"
+      allowfullscreen>
+    </iframe>
+  </section>
+
+  <section>
+    <h2>Video Giới Thiệu</h2>
+
+    <video
+      controls
+      poster="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+      width="600"
+    >
+      <source src="movie.mp4" type="video/mp4">
+      <source src="movie.webm" type="video/webm">
+
+      Trình duyệt của bạn không hỗ trợ video.
+    </video>
+  </section>
+
+  <section>
+    <h2>Audio Giới Thiệu</h2>
+
+    <audio controls>
+      <source src="audio.mp3" type="audio/mpeg">
+      <source src="audio.ogg" type="audio/ogg">
+
+      Trình duyệt của bạn không hỗ trợ audio.
+    </audio>
+  </section>
+
+</body>
+</html>
