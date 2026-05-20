@@ -84,3 +84,19 @@ Câu A4: -Table
 + Không responsive tốt: Layout dễ bị vỡ trên màn hình nhỏ
 + Hiệu năng kém: browser phải render toàn bộ table trước nên sẽ chậm hơn
 Nguồn 05_tables_hyperlinks.md
+
+Phần B:
+
+Câu B3:
+Lỗi 1: Dòng 1 - <!DOCTYPE> thiếu html
+Lỗi 2: Dòng 2 - Thiết thuộc tính lang trong <html>
+Lỗi 3: Dòng 4 - <title> không đóng
+Lỗi 4: Dòng 5 - viết sai "utf8"
+Lỗi 5: Dòng 9 - <h1> không đóng đúng
+Lỗi 6: Dòng 13 - <a> không đóng
+Lỗi 7: Dòng 21 - Thuộc tính src của <img> không có dấu ""
+Lỗi 8: Dòng 21 - <img> thiếu thuộc tính alt
+Lỗi 9: Dòng 23 - <b> đóng sai vị trí
+Lỗi 10: Dòng 30 - Table header dùng <td> thay vì <th>
+Lỗi 11: Dòng 38 - Có 2 thẻ <main>
+Lỗi 12: Dòng 44 - Thẻ <p> trong footer không đóng
