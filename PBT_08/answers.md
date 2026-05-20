@@ -161,3 +161,54 @@ console.log(evenOddText);
 const reversedNums = [...nums].reverse();
 console.log(reversedNums);
 // [10, 9, ..., 1]
+
+Câu A4:
+const product = {
+    name: "iPhone 16",
+    price: 25990000,
+    specs: {
+        ram: 8,
+        storage: 256,
+        color: "Titan"
+    }
+};
+// Destructuring
+const {
+    name,
+    price,
+    specs: { ram, color }
+} = product;
+console.log(name, price, ram, color);
+// iPhone 16 25990000 8 Titan
+console.log(specs);
+// ReferenceError
+
+- Giải thích: 
+specs: { ram, color } chỉ lấy ram và color không tạo biến specs nên console.log(specs) sẽ lỗi
+// Spread
+const updated = {
+    ...product,
+    price: 23990000,
+    sale: true
+};
+Output: 
+console.log(updated.price);
+// 23990000
+
+console.log(updated.sale);
+// true
+
+console.log(product.price);
+// 25990000
+Giải thích: spread tạo object mới, product gốc không bị đổi
+
+// Spread gotcha
+const copy = { ...product };
+copy.specs.ram = 16;
+console.log(product.specs.ram);
+Output:
+16
+Giải thích spread chỉ copy shallow copy và copy nông
+nên copy.specs === product.specs
+// true
+khi sửa copy.specs.ram = 16 thì object gốc cũng bị đổi
