@@ -117,3 +117,47 @@ Giải thích:
 nên in  3 3 3
 - let có block scope
 nên callback nhớ đúng giá trị từng vòng lặp 0 1 2
+
+Câu A3:
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// 1. Lấy các số chẵn
+const evenNums = nums.filter(n => n % 2 === 0);
+console.log(evenNums);
+// [2, 4, 6, 8, 10]
+
+// 2. Nhân mỗi số với 3
+const multiplyBy3 = nums.map(n => n * 3);
+console.log(multiplyBy3);
+// [3, 6, 9, ..., 30]
+
+// 3. Tính tổng tất cả
+const total = nums.reduce((sum, n) => sum + n, 0);
+console.log(total);
+// 55
+
+// 4. Tìm số đầu tiên > 7
+const firstGreaterThan7 = nums.find(n => n > 7);
+console.log(firstGreaterThan7);
+// 8
+
+// 5. Kiểm tra CÓ số > 10 không
+const hasGreaterThan10 = nums.some(n => n > 10);
+console.log(hasGreaterThan10);
+// false
+
+// 6. Kiểm tra TẤT CẢ đều > 0
+const allGreaterThan0 = nums.every(n => n > 0);
+console.log(allGreaterThan0);
+// true
+
+// 7. Tạo mảng "Số X là [chẵn/lẻ]"
+const evenOddText = nums.map(
+    n => `Số ${n} là ${n % 2 === 0 ? "chẵn" : "lẻ"}`
+);
+console.log(evenOddText);
+
+// 8. Đảo ngược mảng (không mutate gốc)
+const reversedNums = [...nums].reverse();
+console.log(reversedNums);
+// [10, 9, ..., 1]
