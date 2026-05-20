@@ -87,3 +87,47 @@ Giải thích:
 - == là so sánh giá trị, có ép kiểu dữ liệu 
 - === là so sánh giá trị và kiểu dữ liệu
 - nên dùng === vì an toàn hơn, không bị ép kiểu ngoài ý muốn, dễ debug lỗi và code rõ ràng hơn
+
+Câu A4:
+// Các giá trị falsy trong JavaScript
+false
+0
+-0
+0n
+""
+null
+undefined
+NaN
+
+if ("0") console.log("A");
+// In
+// vì "0" là string nên truthy
+
+if ("") console.log("B");
+// Không in
+// vì chuỗi rỗng là falsy
+
+if ([]) console.log("C");
+// In
+// vì array rỗng vẫn là truthy
+
+if ({}) console.log("D");
+// In
+// vì object rỗng vẫn là truthy
+
+if (null) console.log("E");
+// Không in
+// vì null là falsy
+
+if (0) console.log("F");
+// Không in
+// vì 0 là falsy
+
+if (-1) console.log("G");
+// In
+// vì số khác 0 là truthy
+
+if (" ") console.log("H");
+// In
+// vì " " là string có chứa space
+// không phải chuỗi rỗng nên truthy
