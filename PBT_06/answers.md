@@ -403,3 +403,34 @@ Cách 2: Dùng @apply (Tailwind nâng cao)
 Sau đó:
 <div class="card"></div>
 
+Câu C2:
+1. Tại sao Tailwind CSS cuối cùng nhỏ hơn Bootstrap?
+- Vì Tailwind chỉ build ra những class bạn dùng, còn Bootstrap là framework có sẵn tất cả component
+- Bootstrap: chứa rất nhiều CSS không dùng đến (button, modal, carousel…)
+Tailwind: chỉ generate utility classes bạn viết trong HTML
+2. PurgeCSS / Tailwind JIT là gì? Loại bỏ gì?
+- Nguyên lý:
++ Tailwind quét toàn bộ file HTML / JS
++ Chỉ giữ lại những class thực sự xuất hiện
++ Xóa hết class không dùng
+- Nó loại bỏ:
++ Các utility classes không được dùng
++ CSS dư thừa (unused styles)
+- JIT (Just-In-Time):
++ Không tạo sẵn toàn bộ CSS
++ Chỉ generate class khi bạn dùng
+3. Khi nào KHÔNG nên dùng Tailwind? (2 tình huống)
+- Trường hợp 1: Project nhỏ, đơn giản
+Ví dụ:
++ Landing page đơn giản
++ Website tĩnh ít component
+- Dùng CSS thuần:
++ Nhanh hơn
++ HTML gọn hơn
+- Trường hợp 2: Khi cần design quá custom / phức tạp
+Ví dụ:
++ Animation phức tạp
++ UI design riêng biệt (không theo utility)
+- Tailwind sẽ:
++ Viết class rất dài
++ Khó quản lý
