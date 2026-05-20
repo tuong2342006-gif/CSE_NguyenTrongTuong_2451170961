@@ -93,3 +93,52 @@ width: 100%;
 + ≥768px -> fixed width giống .container
 Nguồn: tuan_4_css_frameworks/bootstrap/
 
+Phần C:
+Câu C1:
+1. Đổi $primary của Bootstrap sang #E63946
+- Bootstrap dùng: SASS/SCSS variables
+- Muốn đổi màu primary chuẩn Bootstrap thì cần:
++ cài Bootstrap source SCSS
++ sửa biến $primary
++ compile lại SCSS → CSS
+2. Quy trình thực hiện
+- Bước 1 — Cài Bootstrap bằng npm
++ npm install bootstrap
+- Bước 2 — Tạo file SCSS riêng
++ Ví dụ: custom.scss
+- Bước 3 — Override biến $primary
++ $primary: #E63946;
+@import "../node_modules/bootstrap/scss/bootstrap";
+- Bước 4 — Compile SCSS → CSS
++ Ví dụ dùng Sass: sass custom.scss custom.css
+- Bước 5 — Link CSS mới vào HTML
+<link rel="stylesheet" href="custom.css">
+3. Kết quả
+- Tất cả component Bootstrap dùng màu primary sẽ đổi màu:
++ .btn-primary
++ .bg-primary
++ .text-primary
++ .border-primary
++ navbar
++ alerts
++ badges
++ links
++ forms
+- Cần công cụ Node.js + npm, bootstrap source SCSS, Sass
+4.Tại sao KHÔNG nên override trực tiếp?
+Vấn đề
+- Chỉ sửa được một component
+- Chỉ .btn-primary đổi màu
+- Các class khác vẫn xanh mặc định:
++ .bg-primary
++ .text-primary
++ .alert-primary
+-> Giao diện không đồng bộ
+- Khó maintain
++ Sau này đổi màu: phải sửa nhiều nơi,dễ conflict CSS
+- Dễ bị Bootstrap override
+5. Tại sao nên dùng SASS variables?
++ Đồng bộ toàn hệ thống
++ Dễ bảo trì
++ Theo đúng cách bootstrap thiết kế
+
