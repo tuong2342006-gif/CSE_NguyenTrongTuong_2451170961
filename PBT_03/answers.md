@@ -81,3 +81,36 @@ Kết quả: Home
 Kết quả: ShopTLU
 Tài liệu tham chiếu: tuan2_css_core/08_introduction_css.md
 
+Câu A3:
+-Trường hợp 1: content-box 
+.box-1{
+    width: 400px;
+    padding: 20px;
+    border: 5px solid black;
+    marginL 10px;
+}
++Chiều rộng hiển thị = 400 + (20x2) + (5x2) = 450px
++Không gian chiếm trên trang(có margin): 450 + (10x2) = 470px
+-Trường hợp 2: border-box
+.box-2{
+    box-sizing: border-box;
+    width: 400px;
+    padding: 20px;
+    border: 5px solid black;
+    margin: 10px;
+}
++Chiều rộng hiển thị = 400px
++Chiều rộng content thực tế = 400 - (20x2) - (5x2) = 350px
++Không gian chiếm trên trang: 400 + (10x2) = 420px
+-Trường hợp 3: margin collapse
+.box-a {margin-bottom: 25px;}
+.box-b {margin-top: 40px;}
++Khoảng cách giữa 2 box = 40px
++Vì sao khoảng cách giữa 2 box không phải 65px vì xảy ra margin collapse (gộp margin)
+hai margin dọc thì không cộng mà lấy giá trị lớn nhất
+-Nâng cao: 
+.box-a {margin-bottom: -10px;}
+.box-b {margin-top: 40px;}
++ Khoảng cách = 30px vì theo quy tắc 2 số cùng dương thì lấy max, 1 dương 1 âm thì cộng lại và 2 âm thì lấy âm lớn hơn 
+Tài liệu tham chiếu: tuan2_css_core/08_introduction_css.md
+
