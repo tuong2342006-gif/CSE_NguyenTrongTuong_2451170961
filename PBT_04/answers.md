@@ -110,4 +110,84 @@ Nguồn tham khảo: tuan_3_css_advanced/13_creating_responsive_layouts.md
  + nên dùng : được cả 2 grid hoặc flexbox vì nếu chỉ là 1 hàng ngang đơn giản thì flexbox đủ dùng. Nếu muốn có cột đều nhau, responsive đẹp và grid tốt hơn
  - Card sản phẩm (ảnh trên, text giữa, nút dưới — nút luôn dính đáy)
  + nên dùng: flexbox vì Card là layout theo chiều dọc. Dùng flex-direction: column và margin-top: auto để đẩy nút xuống đáy rất tiện
- 
+ Câu C2:
+ -Lỗi 1: Cards không đều chiều cao, nút bị lệch
+ Nguyên nhân: card có lượng text khác nhau: card nhiều text nên cao hơn và card ít text nên thấp hơn.
+ Nút .btn nằm ngay sau nội dung nên bị lệch lên/xuống
+ Code lỗi: 
+ .card-container{
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.card{
+  width:30%;
+  margin:1.5%;
+}
+Code sửa:
+.card{
+  width:30%;
+  margin:1.5%;
+
+  display:flex;
+  flex-direction:column;
+}
+
+.btn{
+  margin-top:auto;
+}
+Giải thích: 
++ flex-direction: column - xếp nội dung theo chiều dọc
++ margin-top: auto - đẩy nút xuống đáy card
+-> tất cả nút sẽ thẳng hàng
+Lỗi 2: item không nằm giữa màn hình
++ Nguyên nhân 
+nhưng chưa dùng:
+justify-content
+align-items
++ Mặc định:
+justify-content: flex-start;
+align-items: stretch;
+-> item dính góc trên trái
++Code sửa: 
+.hero{
+  height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+}
+
+.hero-content{
+  text-align:center;
+}
++ Giải thích:
+justify-content: center: căn giữa ngang
+align-items: center: căn giữa dọc
+- Lỗi 3: sidebar bị co lại
++ Nguyên nhân 
+Trong flexbox: 
+flex-shrink: 1; là mặc định nên sidebar sẽ bị co khi content quá lớn
++ Code lỗi: 
+.layout{
+  display:flex;
+}
+
+.sidebar{
+  width:250px;
+}
+
+.content{
+  flex:1;
+}
++ Cách sửa: 
+.sidebar{
+  width:250px;
+
+  flex-shrink:0;
+}
++ Giải thích:
+flex-shrink: 0 - cấm sidebar co lại
+flex: 0 0 250px - không grow, không shrink và width = 250px
