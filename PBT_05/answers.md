@@ -192,3 +192,51 @@ _components.scss
 - Compile
 Có lệnh compile SCSS → CSS
 
+Phần C:
+Câu C1:
+1. Mobile — 375px
+* Navigation
+- Chỉ còn:
++ logo
++ nút search
++ avatar/menu
+- Sidebar bị thu gọn thành icon
+- Menu dạng mobile compact
+* Content Grid
+- Video hiển thị: 1 cột
+* Elements bị ẩn
++ Một số text ở sidebar
++ Category dài bị rút gọn
++ Mini sidebar collapse
+* Font Size
++ Nhỏ hơn desktop
++ Title video ngắn lại để vừa màn hình
+2. Tablet — 768px
+*Navigation
+- Thanh search lớn hơn
+- Sidebar bắt đầu mở rộng hơn mobile
+- Có thêm category bar
+* Content Grid
+Video hiển thị: 2 cột
+* Elements bị ẩn
+- Ít bị ẩn hơn mobile
+- Một số sidebar vẫn compact
+* Font Size
+- Lớn hơn mobile một chút
+3. Desktop — 1440px
+*Navigation
+- Full navbar:
++ logo
++ search bar lớn
++ microphone
++ upload
++ notification
++ avatar
+- Sidebar đầy đủ text + icon
+* Content Grid
+Video hiển thị: 4 cột
+* Elements bị ẩn
+- Gần như không ẩn
+* Font Size
+- Lớn hơn mobile
+- Khoảng cách rộng hơn
