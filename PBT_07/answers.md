@@ -70,3 +70,20 @@ Giải thích:
 (1) "5" + 3 vì dấu + có thể dùng để nối chuỗi nên số 3 bị ép kiểu thành string => "5" + "3" = "53"
 (2) "5" - 3 vì dấu - chỉ dùng cho toán học nên nó sẽ ép "5" thành number => 5 - 3 = 2
 
+Câu A3:
+console.log(5 == "5");               // true
+console.log(5 === "5");              // false
+
+console.log(null == undefined);      // true
+console.log(null === undefined);     // false
+
+console.log(NaN == NaN);             // false
+
+console.log(0 == false);             // true
+console.log(0 === false);            // false
+
+console.log("" == false);            // true
+Giải thích: 
+- == là so sánh giá trị, có ép kiểu dữ liệu 
+- === là so sánh giá trị và kiểu dữ liệu
+- nên dùng === vì an toàn hơn, không bị ép kiểu ngoài ý muốn, dễ debug lỗi và code rõ ràng hơn
