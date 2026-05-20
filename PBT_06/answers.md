@@ -307,3 +307,20 @@ HTML:
 + dễ maintain - khó hơn nếu project lớn
 + kích thước file - nhẹ - nặng hơn
 
+TRACK B — TAILWINDCSS
+Phần A: 
+Câu A1:
+- flex -> display: flex
+- items-center -> align-items: center
+- justify-between -> justify-content: space-between
+- p-4 -> padding: 1rem (16px)
+- bg-white -> background-color: #ffffff
+- s- hadow-md -> box-shadow: medium shadow (e.g. 0 4px 6px rgba(0,0,0,0.1))
+- rounded-lg -> border-radius: 0.5rem (8px)
+- hover:shadow-xl -> khi hover: tăng - - box-shadow lớn hơn
+- transition-shadow -> transition chỉ áp dụng cho box-shadow
+- duration-300 -> transition-duration: 300ms
+- w-16 -> width: 4rem (64px)
+- h-16 -> height: 4rem (64px)
+- rounded-full -> border-radius: 9999
+
