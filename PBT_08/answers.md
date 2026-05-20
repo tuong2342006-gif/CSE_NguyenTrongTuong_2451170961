@@ -66,3 +66,54 @@ const test3 = () => {
     return "Hello";
 };
 - Kết quả": ReferenceError
+
+Câu A2:
+// Đoạn 1
+function counter() {
+    let count = 0;
+    return {
+        increment: () => ++count,
+        decrement: () => --count,
+        getCount: () => count
+    };
+}
+
+const c = counter();
+
+console.log(c.increment());  
+// 1
+console.log(c.increment());  
+// 2
+console.log(c.increment());  
+// 3
+console.log(c.decrement());  
+// 2
+console.log(c.getCount());   
+// 2
+
+// Đoạn 2
+
+for (var i = 0; i < 3; i++) {
+
+    setTimeout(() => console.log("var:", i), 100);
+
+}
+for (let j = 0; j < 3; j++) {
+
+    setTimeout(() => console.log("let:", j), 200);
+
+}
+Output: 
+var: 3
+var: 3
+var: 3
+
+let: 0
+let: 1
+let: 2
+
+Giải thích:
+- var cps function scope không cố block scope
+nên in  3 3 3
+- let có block scope
+nên callback nhớ đúng giá trị từng vòng lặp 0 1 2
