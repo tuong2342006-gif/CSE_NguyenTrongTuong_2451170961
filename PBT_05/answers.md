@@ -67,3 +67,12 @@ Câu A2:
 + Lưới sản phẩm: 5-6 cột
 Nguồn: tuan_3_css_advanced/13_creating_responsive_layouts.md
 
+Câu A3:
+Chiều rộng màn hình- .container width:
++ 375px - 100%
++ 600px - 540px
++ 800px - 720px
++ 1000px - 960px
++ 1400px - 1140px
+Nguồn: tuan_3_css_advanced/13_creating_responsive_layouts.md\
+
