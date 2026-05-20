@@ -29,3 +29,18 @@ pattern - regex
 minlegth - độ dài
 Nguồn: 07_forms_interactive.md + Core Technical Truth
 
+Câu A3:
+1. <label for="email"> quan trọng vì <label> liên kết với <input> thông qua for="id" và khi dùng screen reader, nó sẽ đọc tên của trường nhập thay vì chỉ đọc "edit text"
+2. dùng <fieldset> + <legend> khi nhóm nhiều input liên quan với nhau 
+Ví dụ 
+<fieldset>
+    <legend>Phương thức thanh toán</legend>
+
+    <input type="radio" name="pay">Tiền mặt<br>
+    <input type="radio" name="pay>Chuyển khoản<br>
+</fieldset>
+3. dùng aria-label khi không có <label> hiển thị hoặc element không có text 
+Ví dụ: <button aria-label="Tìm kiếm"></button>
+4. Không nên dùng aria-label khi đã có <label> vì <label> đã cung cấp thông tin đầy đủ rồi, dùng thêm aria-label sẽ gây trùng lặp và gây rối cho screen reader
+Nguồn: 07_forms_interactive.md + Accessbilities
+
