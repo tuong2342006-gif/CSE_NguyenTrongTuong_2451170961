@@ -133,3 +133,88 @@ element sẽ có màu red vì ID luôn mạnh hơn class và tag, rule C thắng
 3. Nếu thêm <p class="price" id="main-price" style="color: orange;"> element sẽ có màu orange
 4. nếu rule A thêm !important, element có màu black vì lúc này override toàn bộ specificity bình thường và các rule khác không có nên bị override hết
 
+Phần B:
+Câu B1: 
+CSS Selectors đã sử dụng:
+1. element selector: body, table, th, td
+2. class selector: .active
+3. ID selector: #main- header 
+4. Descendant selector: #main-header nav a
+5. pseudo-class: hover, :nth-child(even)
+
+Câu B2:
+Phần 1:
+Hộp 1 - content - box
+chiều rộng thực tế = 350px
+Hộp 2 - border - box
+chiều rộng thực tế = 300px
+Giải thích:
++ content-box chỉ tính phần content nên padding + border cộng thêm, tổng lớn hơn width khai báo
++ border -box: width bao gồm cả padding và border nên tổng chiều rộng không đổi
+Phần 2: 
+- Khi không dùng border-box
++ mỗi cột thực tế:
+sidebar: 250 + 30 = 280px
+content: 500 + 40 = 540px
+ads: 250 + 30 = 280px
+tổng: 1100px ( vỡ layout)
+- khi dùng border-box 
+* {
+    box-sizing: border-box;
+}
+tổng = 1000px
+
+Câu B3:
+1. Danh sách rules + specificity
+1.p - (0,0,1)
+2. .text - (0,1,0)
+3. .hightlight - (0,1,0)
+4. .text.hightlight - (0,2,0)
+5. p.text - (0,1,1)
+6. p.text.hightlight - (0,2,1)
+7. #demo - (1,0,0)
+8. p#demo - (1,0,1)
+9. #demo.text - (1,1,0)
+10. p#demo.text.hightlight - (1,2,1)
+2. Kết quả cuối cùng
+element hiển thị màu gold
+3. giải thích: rule cuối có specificity cao nhất (1,2,1) nên override tất cả các rule còn lại
+4. nếu đổi thứ tự css
+- nếu không có rule nào cùng specificity: kết quả không đổi
+- nếu có 2 rule cùng specificity: rule viết sau sẽ thắng (cascade)
+
+Phần C:
+Câu C1:
+1. Tính chiều rộng thực tế
+-Sidebar
+width: 300px;
+padding: 20px;
+border: 1px;
+sidebar = 300 + (20x2) + (1x2) = 342px
+-Content
+width: 660px;
+padding: 30px;
+border: 1px;
+content = 660 + (30x2) + (1x2) = 722px
+Tổng: 1064px mà container chỉ 960px
+2.Layout bị vỡ vì tổng width > container cho nên khồn đủ chỗ nằm ngang và content bị rớt xuống dòng
+3. Cách sửa
+Cách 1: Dùng border-box 
+* { 
+    box-sizing: border-box;
+}
+-sidebar = 300px 
+-content= 660px
+Tổng: 960px
+Cách 2: không dùng border-box
+phải tự trừ padding + border
+-sidebar = 300 - 40 - 2 = 258px
+- content = 660 - 60 - 2 = 598px
+.sidebar {
+    width: 258px;
+}
+.content {
+    width: 598px;
+}
+Tổng: 960px (thỏa mãn)
+
