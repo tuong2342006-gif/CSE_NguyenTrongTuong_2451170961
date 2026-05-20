@@ -168,3 +168,27 @@ CSS:
 5. trình duyệt không đọc được file .scss vì .scss không phải CSS chuẩn và nó chứa cú pháp đặc  biệt như nesting, $variables, @mixin, @extend
 6. Quy trình: SCSS -> Compiler -> CSS
 
+Phần B: 
+Câu B3:
+SCSS Compile Command
+sass scss/style.scss style.css
+
+- Variables
+Có hơn 8 variables
+Dùng nhất quán
+- Nesting
+.header
+.card
+&:hover
+&.featured
+- Mixins
+respond-to
+flex-center
+card-shadow
+- Partials
+_variables.scss
+_mixins.scss
+_components.scss
+- Compile
+Có lệnh compile SCSS → CSS
+
