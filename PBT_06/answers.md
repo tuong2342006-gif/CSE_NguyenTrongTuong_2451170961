@@ -324,3 +324,82 @@ Câu A1:
 - h-16 -> height: 4rem (64px)
 - rounded-full -> border-radius: 9999
 
+Câu A2:
+1. Prefix responsive: md:, lg:, xl:
+Trong TailwindCSS, các prefix này là breakpoints (responsive theo màn hình)
+- md:≥ 768px
+- lg:≥ 1024px
+- xl:≥ 1280px
+2. State modifiers
+- hover: Khi rê chuột vào element
+- focus: Khi click hoặc tab vào input/button
+- active: Khi đang nhấn giữ chuột
+- group-hover: Hover vào parent thì affect child
+3. Class Tailwind yêu cầu
+- Trong Tailwind, class tương đương với d-none d-md-flex (Bootstrap) là: hidden md:flex
+- Giải thích:
+hidden -> ẩn trên mọi màn (giống d-none)
+md:flex -> từ tablet trở lên (≥768px) thì hiển thị dạng flex
+
+Phần C:
+Câu C1:
+1. So sánh HTML file size
+- CSS thuần:
+HTML:
+<div class="card">
+  <img class="card-img">
+  <h3 class="card-title">Product</h3>
+  <p class="card-price">$20</p>
+</div>
+CSS: 
+.card {
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
++ HTML: ngắn hơn
++ Nhưng phải có thêm file CSS riêng
+
+- Tailwind:
+<div class="rounded-lg shadow-md hover:shadow-xl transition p-4">
+  <img class="rounded mb-3">
+  <h3 class="font-semibold">Product</h3>
+  <p class="text-gray-500">$20</p>
+</div>
++ HTML: dài hơn
++ nhưng ko cần CSS
+
+2. Maintainability (dễ đọc, dễ sửa)
+- CSS thuần:
++ Code HTML gọn, dễ nhìn
++ Style tách riêng → rõ ràng
++ Phải nhảy qua lại HTML ↔ CSS
++ Dự án lớn dễ bị class trùng / override khó kiểm soát
+
+- Tailwind:
++ Sửa trực tiếp trong HTML → nhanh
++ Không lo trùng class
++ Dễ debug (nhìn class là biết style)
++ HTML rất dài → khó đọc lúc đầu
++ Người mới sẽ bị “ngợp class”
+3. Reusability (tái sử dụng)
+- CSS thuần:
++ Tái sử dụng bằng class:
+<div class="card"></div>
++ Rất tiện cho component lớn
+- Tailwind:
++ Không có class sẵn → phải viết lại nhiều utility
++ Nhưng có 2 cách reuse:
+Cách 1: Dùng component (copy)
+<div class="rounded-lg shadow-md p-4 ..."></div>
+Cách 2: Dùng @apply (Tailwind nâng cao)
+.card {
+  @apply rounded-lg shadow-md p-4 hover:shadow-xl transition;
+}
+Sau đó:
+<div class="card"></div>
+
