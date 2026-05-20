@@ -52,5 +52,21 @@ let có block scope
 a trong block và ngoài block là 2 biến khác nhau
 Nguồn: tuan_4_javascript_basics/01_basics_introduction.md
  
+Câu A2:
+console.log(typeof null);          // object
+console.log(typeof undefined);     // undefined
+console.log(typeof NaN);           // number
 
+console.log("5" + 3);              // 53
+console.log("5" - 3);              // 2
+console.log("5" * "3");            // 15
+
+console.log(true + true);          // 2
+
+console.log([] + []);              // ""
+console.log([] + {});              // [object Object]
+console.log({} + []);              // 0
+Giải thích:  
+(1) "5" + 3 vì dấu + có thể dùng để nối chuỗi nên số 3 bị ép kiểu thành string => "5" + "3" = "53"
+(2) "5" - 3 vì dấu - chỉ dùng cho toán học nên nó sẽ ép "5" thành number => 5 - 3 = 2
 
