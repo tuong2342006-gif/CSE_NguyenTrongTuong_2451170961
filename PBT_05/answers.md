@@ -46,3 +46,24 @@ Câu A1:
 - Mobile-First được khuyên dùng vì hiện nay người dùng mobile rất nhiều và đá số truy cập web đến từ điện thoại nên ưu tiên mobile trước giúp trải nghiệm tốt hơn, CSS gọn và dễ mở rộng hơn, quan trọng hơn là hiệu suốt tốt hơn
 Nguồn: tuan_3_css_advanced/13_creating_responsive_layouts.md
 
+Câu A2:
+- XS — Extra Small(<576px)
++ Thiết bị: iPhone SE, Android nhỏ
++ Lưới sản phẩm: 1 cột
+- SM - Small (<576px)
++ Thiết bị: iPhone Plus/Pro Max, Điện thoại ngang
++ Lưới sản phẩm: 2 cột
+- MD - Medium (>= 768px)
++ Thiết bị: iPad, Tablet Android
++ Lưới sản phẩm: 2-3 cột
+- LG - Large (>=992px)
++ Thiết bị: Laptop, Desktop nhỏ
++ Lưới sản phẩm: 3-4 cột
+- XL - Extra large (>= 1200px)
++ Thiết bị: Desktop lớn
++ Lưới sản phẩm: 4 cột
+- XXL - Extra Extra Large (>= 1400px)
++ Thiết bị: màn hình 2K/4K
++ Lưới sản phẩm: 5-6 cột
+Nguồn: tuan_3_css_advanced/13_creating_responsive_layouts.md
+
