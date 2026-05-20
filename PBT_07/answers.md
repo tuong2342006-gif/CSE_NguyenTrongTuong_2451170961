@@ -50,3 +50,7 @@ Ngoài block: 1
 // vì:
 let có block scope
 a trong block và ngoài block là 2 biến khác nhau
+Nguồn: tuan_4_javascript_basics/01_basics_introduction.md
+ 
+
+
