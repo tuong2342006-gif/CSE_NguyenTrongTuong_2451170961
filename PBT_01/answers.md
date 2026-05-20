@@ -100,3 +100,23 @@ Lỗi 9: Dòng 23 - <b> đóng sai vị trí
 Lỗi 10: Dòng 30 - Table header dùng <td> thay vì <th>
 Lỗi 11: Dòng 38 - Có 2 thẻ <main>
 Lỗi 12: Dòng 44 - Thẻ <p> trong footer không đóng
+
+Câu B4:
+1. Các thẻ semantic HTML5 được sử dụng trong tiki.vn
+-Thẻ <html lang="vi">
+ ![alt text](<Screenshot 2026-04-23 233857.png>)
+-Thẻ <head>
+![alt text](<Screenshot 2026-04-23 234054.png>)  
+-Thẻ <body>
+![alt text](<Screenshot 2026-04-23 234139.png>)
+Các thẻ không dùng semantic
+![alt text](<Screenshot 2026-04-23 234414.png>)
+2. Tìm 1 <table> trên trang tiki.vn: Không có
+![alt text](<Screenshot 2026-04-23 234833.png>)
+-Không dùng <thead>,<tbody>
+3. Tìm 1 <form> trên trang tiki.vn: Không có
+![altt text](<Screenshot 2026-04-23 235726.png>)
+-Không có action/ method: GET
+- Input types được dùng:
++ Text - nhập từ khóa
++ submit - nút tìm kiếm
