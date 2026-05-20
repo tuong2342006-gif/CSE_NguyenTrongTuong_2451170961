@@ -73,3 +73,14 @@ Giải thích:
 - <div> là block element: luôn chiếm toàn bộ chiều ngang nên hộp 1, hộp 2, hộp 3 mỗi cái nằm một dòng
 - <span> và <strong> là inline element: Không xuống dòng và hiện thị trên cùng một dòng nên Text A và Text B cùng 1 dòng, Text C và Text D cùng một dòng
 Nguồn: 04_semantic_html.md 
+
+Câu A4: -Table
+<thead>:  Chứa phần tiêu đề của bảng, thường gồm các cột
+<tbody>: Chứa dữ liệu chính của bảng, là phần lớn nhất và gồm nhiều dòng dữ liệu
+<tfoot>: Chứa phần kết của bảng, thường dùng hiểu thị tổng, ghi chú
+-Tại sao không dùng table để tạo layout vì
++ Không semantic: table chỉ dùng cho dữ liệu dạng bảng 
++ Code khó đọc, khó bảo trì: table lồng nhau rất phức tạp
++ Không responsive tốt: Layout dễ bị vỡ trên màn hình nhỏ
++ Hiệu năng kém: browser phải render toàn bộ table trước nên sẽ chậm hơn
+Nguồn 05_tables_hyperlinks.md
