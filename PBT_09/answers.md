@@ -276,3 +276,97 @@ window.addEventListener("load", () => {
         });
     });
 });
+
+Câu C2:
+1. Vì sao bind event lên 1000 elements là BAD PRACTICE?
+- Ví dụ BAD
+const items = document.querySelectorAll(".item");
+
+items.forEach(item => {
+
+    item.addEventListener("click", () => {
+
+        console.log("clicked");
+    });
+});
+
+- Nếu có 1000 elements:
++ tạo 1000 event listeners
++ tốn RAM
++ chậm hơn
++ khó maintain
++ dynamic elements mới thêm sẽ không có event
+- Event Delegation giải quyết thế nào?
+Thay vì bind lên từng element, ta bind lên parent.
+Event bubbling sẽ giúp parent nhận event từ child.
+
++ Ví dụ tốt hơn
+document
+    .querySelector("#list")
+    .addEventListener("click", (e) => {
+
+        if (e.target.classList.contains("item")) {
+
+            console.log("clicked");
+        }
+    });
+Ưu điểm Event Delegation
+- Cách cũ	
++ 1000 listeners
++ Tốn memory
++ Chậm
++ Khó maintain
+- Event Delegation
++ 1 listener
++ Tiết kiệm memory
++ Nhanh hơn
++ Dễ maintain
+
+2. Refactor bằng DocumentFragment
+- Code cũ
+for (let i = 0; i < 1000; i++) {
+
+    const div = document.createElement("div");
+
+    div.textContent = `Item ${i}`;
+
+    document.body.appendChild(div);
+}
+- Vấn đề
+appendChild() vào DOM thật:
++ browser phải render lại
++ tính layout lại
++ repaint/reflow liên tục
+
+1000 lần append
+-> có thể gây 1000 lần reflow.
+- Refactor với DocumentFragment
+const fragment = document.createDocumentFragment();
+for (let i = 0; i < 1000; i++) {
+    const div = document.createElement("div");
+    div.textContent = `Item ${i}`;
+    fragment.appendChild(div);
+}
+
+document.body.appendChild(fragment);
+- Vì sao nhanh hơn?
+DocumentFragment
+là DOM ảo trong memory.
+
+- Khi append vào fragment:
++ chưa render ra màn hình
++ không reflow
++ không repaint
+- Cuối cùng: document.body.appendChild(fragment);
+- So sánh
+Cách thường:
++ 1000 lần update DOM
++ nhiều redflow
++ chậm hơn 
++ tồn tài nguyên
+DocumentFragment
++ 1 lần update DOM 
++ 1 reflow
++ nhanh hơn 
++ tối ưu hơn
+
