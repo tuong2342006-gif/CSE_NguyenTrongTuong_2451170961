@@ -84,4 +84,30 @@ const userInput = document.querySelector("#search").value;
 document.querySelector("#result").textContent = userInput;
 Lúc này trình duyệt chỉ hiển thị text:
 <img src=x onerror="alert('Hacked!')">
- 
+
+Câu A3:
+- Khi click vào button
++ Event sẽ nổi bọt (event bubbling) từ phần tử con ra cha:
+button → inner → outer
++ Output bình thường
+BUTTON
+INNER
+OUTER
+- Giải thích
++ Click vào #btn
++ Chạy event của button
++ Event nổi lên #inner
++ Sau đó nổi lên #outer
+- Nếu uncomment e.stopPropagation()
+document.querySelector("#btn").addEventListener("click", (e) => {
+    console.log("BUTTON");
+    e.stopPropagation();
+});
+- Output
+BUTTON
+- Giải thích
+stopPropagation() sẽ chặn event bubbling.
+Event không nổi lên:
++ #inner
++ #outer
+nên chỉ còn log của button.
