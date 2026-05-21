@@ -111,3 +111,168 @@ Event không nổi lên:
 + #inner
 + #outer
 nên chỉ còn log của button.
+
+Phần C:
+Câu C1:
+- Lỗi 1 — Sai event "onclick"
++ Sai
+addEventListener("onclick", ...)
++ Đúng
+addEventListener("click", ...)
+addEventListener không dùng "onclick".
+
+- Lỗi 2 — Gán lại cho const
++ Sai
+countDisplay = count;
+countDisplay là DOM element nên không thể gán số trực tiếp.Đúng
+countDisplay.textContent = count;
++ Đúng
+countDisplay.textContent = count;
+
+- Lỗi 3 — innerHTML = null
++ Sai
+historyList.innerHTML = null;
++ Đúng
+historyList.innerHTML = "";
+Nên clear bằng chuỗi rỗng.
+
+- Lỗi 4 — Quên gọi hàm .remove()
++ Sai
+item.remove;
++ Đúng
+item.remove();
+Thiếu () nên hàm không chạy.
+
+- Lỗi 5 — localStorage.getItem() trả về string
++ Sai
+count = localStorage.getItem("count");
+count sẽ thành string.
++ Đúng
+count = Number(localStorage.getItem("count")) || 0;
+
+- Lỗi 6 — Không load history từ localStorage
+Code chỉ load count nhưng không load history.
++ Thiếu
+historyList.innerHTML =
+    localStorage.getItem("history") || "";
+
+- Lỗi 7 — History sau khi load mất event click
+Khi load bằng innerHTML, các event cũ không còn hoạt động.
+Cần bind lại event cho từng <li>.
++ Sửa
+const items = historyList.querySelectorAll("li");
+
+items.forEach(item => {
+
+    item.addEventListener("click", function() {
+
+        deleteHistory(this);
+    });
+});
+
+- Lỗi 8 — Dùng innerHTML cho số đơn giản
++ Sai
+countDisplay.innerHTML = count;
++ Tốt hơn
+countDisplay.textContent = count;
+An toàn và đúng semantic hơn.
+Code đã sửa hoàn chỉnh
+const countDisplay =
+    document.querySelector(".count");
+
+const historyList =
+    document.getElementById("history");
+
+let count = 0;
+
+document
+    .querySelector("#incrementBtn")
+    .addEventListener("click", function() {
+
+        count++;
+
+        countDisplay.textContent = count;
+
+        const li =
+            document.createElement("li");
+
+        li.textContent =
+            "Count changed to " + count;
+
+        li.addEventListener("click", function() {
+
+            deleteHistory(this);
+        });
+
+        historyList.append(li);
+    });
+
+document
+    .querySelector("#decrementBtn")
+    .addEventListener("click", function() {
+
+        count--;
+
+        countDisplay.textContent = count;
+    });
+
+document
+    .querySelector("#resetBtn")
+    .addEventListener("click", () => {
+
+        count = 0;
+
+        countDisplay.textContent = count;
+
+        historyList.innerHTML = "";
+    });
+
+function deleteHistory(element) {
+
+    element.parentNode.removeChild(element);
+}
+
+document
+    .querySelector("#clearHistory")
+    .addEventListener("click", () => {
+
+        const items =
+            historyList.querySelectorAll("li");
+
+        items.forEach(item => {
+
+            item.remove();
+        });
+    });
+
+window.addEventListener("beforeunload", () => {
+
+    localStorage.setItem("count", count);
+
+    localStorage.setItem(
+        "history",
+        historyList.innerHTML
+    );
+});
+
+window.addEventListener("load", () => {
+
+    count =
+        Number(localStorage.getItem("count")) || 0;
+
+    countDisplay.textContent = count;
+
+    historyList.innerHTML =
+        localStorage.getItem("history") || "";
+
+    const items =
+        historyList.querySelectorAll("li");
+
+    items.forEach(item => {
+
+        item.addEventListener("click", function() {
+
+            deleteHistory(this);
+        });
+    });
+});
