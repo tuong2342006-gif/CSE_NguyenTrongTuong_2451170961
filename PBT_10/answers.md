@@ -118,3 +118,208 @@ Kết quả:
 Trái - callback lồng nhau
 Phải - code chạy tuần tự, dễ đọc
 
+Phần C: 
+Câu C1: 
+1. Network Errors (mất mạng giữa chừng)
+Dấu hiệu:
+WiFi mất
+Internet chập chờn
+DNS lỗi
+Request không gửi được
+Cách xử lý:
+Bọc try/catch
+Hiện thông báo thân thiện
+Retry tự động
+Cache dữ liệu cũ nếu có
+Disable nút spam request
+
+Ví dụ:
+async function getProducts() {
+  try {
+    const response =
+      await fetch("/products");
+
+    const data =
+      await response.json();
+
+    return data;
+
+  } catch (error) {
+    console.log(error);
+
+    alert(
+      "Mất kết nối mạng"
+    );
+
+    return [];
+  }
+}
+
+2. API Errors (500 / 404 / 429)
+Không phải API trả lỗi là fetch() throw error.
+Phải tự kiểm tra:
+
+if (!response.ok) {
+  throw new Error(
+    response.status
+  );
+}
+404 Not Found
+Resource không tồn tại
+
+Ví dụ:
+if (response.status === 404) {
+  alert(
+    "Không tìm thấy dữ liệu"
+  );
+}
+500 Internal Server Error
+Lỗi phía server
+
+Ví dụ:
+if (response.status >= 500) {
+  alert(
+    "Server đang gặp lỗi"
+  );
+}
+429 Too Many Requests
+Bị rate limit
+
+Ví dụ:
+if (response.status === 429) {
+  alert(
+    "Quá nhiều request, thử lại sau"
+  );
+}
+
+3. Timeout (>10 giây)
+
+Dùng AbortController.
+async function fetchWithTimeout(
+  url,
+  ms = 10000
+) {
+
+  const controller =
+    new AbortController();
+
+  const timeout =
+    setTimeout(() => {
+      controller.abort();
+    }, ms);
+
+  try {
+
+    const response =
+      await fetch(url, {
+        signal:
+          controller.signal
+      });
+
+    clearTimeout(timeout);
+
+    return response;
+
+  } catch (error) {
+
+    if (
+      error.name ===
+      "AbortError"
+    ) {
+
+      throw new Error(
+        "Request timeout"
+      );
+    }
+
+    throw error;
+  }
+}
+
+Sử dụng:
+await fetchWithTimeout(
+  "/products",
+  10000
+);
+
+4. Retry Logic (3 lần)
+
+Ý tưởng:
+Request fail
+retry 1
+retry 2
+retry 3
+still fail → throw error
+
+Code:
+async function fetchWithRetry(
+  url,
+  maxRetries = 3
+) {
+
+  for (
+    let i = 0;
+    i < maxRetries;
+    i++
+  ) {
+
+    try {
+
+      const response =
+        await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(
+          "API Error"
+        );
+      }
+
+      return response;
+
+    } catch (error) {
+
+      console.log(
+        `Retry ${i + 1}`
+      );
+
+      if (
+        i ===
+        maxRetries - 1
+      ) {
+        throw error;
+      }
+
+    }
+
+  }
+
+}
+
+Sử dụng:
+const response =
+  await fetchWithRetry(
+    "/products",
+    3
+  );
+
+5. Chiến lược tổng thể E-Commerce
+- Request
+- Timeout Protection
+- Try Fetch
+- Network Error?
+yes → Retry
+no
+- Check response.ok
+- 404 = Not Found UI
+- 429 = Wait + Retry later
+- 500 = Server Error UI
+Success = Render Data
+
+6. Best Practice thực tế
+Loading spinner khi request
+Retry network errors
+Timeout để tránh treo UI
+Error message thân thiện
+Cache dữ liệu cũ
+Không crash toàn app vì 1 API lỗi
+Log lỗi vào monitoring
