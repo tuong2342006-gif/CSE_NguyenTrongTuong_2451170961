@@ -149,7 +149,6 @@ console.log(
     "Nam:",
     (maleTotal / maleCount).toFixed(1)
 );
-
 console.log(
     "Nữ:",
     (femaleTotal / femaleCount).toFixed(1)
