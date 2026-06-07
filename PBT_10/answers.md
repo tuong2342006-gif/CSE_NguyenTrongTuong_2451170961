@@ -323,3 +323,156 @@ Error message thân thiện
 Cache dữ liệu cũ
 Không crash toàn app vì 1 API lỗi
 Log lỗi vào monitoring
+
+Câu C2:
+Bảng so sánh
+Method - Khi nào resolve? - Khi nào reject? - Use case
+.all() - Tất cả Promise thành công - Chỉ cần 1 Promise fail - Load nhiều data bắt buộc phải đủ
+.allSettled() - Khi tất cả Promise kết thúc - Không reject toàn bộ - Dashboard nhiều widget
+.race() - Promise đầu tiên hoàn thành (resolve/reject) - Nếu promise đầu tiên reject - Timeout, CDN nhanh nhất
+.any() - Promise đầu tiên resolve - Khi tất cả reject - Mirror servers / fallback APIs
+
+1. Promise.all()
+
+Ví dụ E-Commerce:
+user profile
+cart
+orders
+
+Phải có đủ cả 3 mới render
+async function loadProfilePage() {
+  try {
+
+    const [
+      user,
+      cart,
+      orders
+    ] = await Promise.all([
+
+      fetch("/api/user")
+        .then(r => r.json()),
+
+      fetch("/api/cart")
+        .then(r => r.json()),
+
+      fetch("/api/orders")
+        .then(r => r.json())
+
+    ]);
+
+    console.log(
+      user,
+      cart,
+      orders
+    );
+
+  } catch (error) {
+
+    console.log(
+      "Một API lỗi -> fail hết"
+    );
+
+  }
+}
+
+2. Promise.allSettled()
+Dashboard:
+weather widget
+stock widget
+news widget
+
+Một widget chết không nên làm chết dashboard.
+async function loadDashboard() {
+  const results =
+    await Promise.allSettled([
+
+      fetch("/weather")
+        .then(r => r.json()),
+
+      fetch("/stocks")
+        .then(r => r.json()),
+
+      fetch("/news")
+        .then(r => r.json())
+
+    ]);
+
+  results.forEach(
+    (result, index) => {
+
+      if (
+        result.status ===
+        "fulfilled"
+      ) {
+
+        console.log(
+          "Success",
+          index,
+          result.value
+        );
+
+      } else {
+
+        console.log(
+          "Error",
+          result.reason
+        );
+
+      }
+
+    }
+  );
+}
+
+3. Promise.race()
+Timeout request.
+API nào xong trước thắng
+
+async function fetchWithTimeout() {
+  const result =
+    await Promise.race([
+
+      fetch("/products"),
+
+      new Promise(
+        (_, reject) =>
+
+          setTimeout(() => {
+
+            reject(
+              new Error(
+                "Timeout"
+              )
+            );
+
+          }, 10000)
+      )
+
+    ]);
+
+  return result;
+}
+
+4. Promise.any()
+Có nhiều server mirror
+Chỉ cần server nào trả OK đầu tiên
+async function loadImage() {
+  const image =
+    await Promise.any([
+
+      fetch(
+        "https://cdn1.com/img"
+      ),
+
+      fetch(
+        "https://cdn2.com/img"
+      ),
+
+      fetch(
+        "https://cdn3.com/img"
+      )
+
+    ]);
+
+  return image;
+}
