@@ -73,3 +73,48 @@ Catch được:
 - Lỗi tự throw
 - JSON parse error
 - 404 / 500 tự động catch
+Câu A3:
+1. Sơ đồ 3 trạng thái của Promise
+
+Promise có 3 trạng thái chính:
+
+            Promise Created
+                   |
+                   v
+               Pending
+              /       \
+             /         \
+            v           v
+      Fulfilled      Rejected
+      (resolve)       (reject)
+
+2. Callback Hell xảy ra khi callback lồng callback quá nhiều 
+
+3. Ví dụ Callback Hell 4 cấp
+getUser(userId, function(user){
+    getPosts(user.id, function(posts){
+        getComments(posts[0].id, function(comments){
+            getLikes(comments[0].id, function(likes){
+                console.log(likes);
+            });
+        });
+    });
+});
+
+4. Refactor sang async/await
+async function loadData() {
+    try {
+        const user = await getUser(userId);
+        const posts = await getPosts(user.id);
+        const comments = await getComments(posts[0].id);
+        const likes = await getLikes(comments[0].id);
+        console.log(likes);
+
+    } catch(error) {
+        console.log(error);
+    }
+}
+Kết quả: 
+Trái - callback lồng nhau
+Phải - code chạy tuần tự, dễ đọc
+
